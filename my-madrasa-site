@@ -1,0 +1,637 @@
+اب مجھے یہ کوڈ ملا ہے آگے کیا کرنا ہے.
+
+<!DOCTYPE html>  <html lang="ur" dir="rtl">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Jamia Malikiyah Uoch Power - Naseerabad</title>  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">  
+
+<style>  
+    /* --- CSS VARIABLES & RESET --- */  
+    :root {  
+        --primary-color: #006400; /* Islamic Green */  
+        --secondary-color: #cfb53b; /* Gold/Cream */  
+        --light-bg: #f4f9f4;  
+        --text-color: #333;  
+        --white: #ffffff;  
+        --shadow: 0 4px 6px rgba(0,0,0,0.1);  
+        --transition: all 0.3s ease;  
+    }  
+
+    * {  
+        margin: 0;  
+        padding: 0;  
+        box-sizing: border-box;  
+    }  
+
+    body {  
+        font-family: 'Noto Nastaliq Urdu', 'Amiri', 'Arial', sans-serif;  
+        background-color: var(--light-bg);  
+        color: var(--text-color);  
+        line-height: 1.8;  
+        overflow-x: hidden;  
+    }  
+
+    /* English Mode Override Styles */  
+    body.en-mode {  
+        direction: ltr;  
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+        text-align: left;  
+    }  
+
+    a { text-decoration: none; color: inherit; }  
+    ul { list-style: none; }  
+
+    .container {  
+        max-width: 1200px;  
+        margin: 0 auto;  
+        padding: 0 20px;  
+    }  
+
+    section {  
+        padding: 60px 0;  
+    }  
+
+    /* --- HEADER & NAVIGATION --- */  
+    header {  
+        background-color: var(--white);  
+        box-shadow: var(--shadow);  
+        position: sticky;  
+        top: 0;  
+        z-index: 1000;  
+    }  
+
+    .nav-container {  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+        height: 80px;  
+    }  
+
+    .logo {  
+        font-size: 1.5rem;  
+        font-weight: bold;  
+        color: var(--primary-color);  
+    }  
+
+    .nav-links {  
+        display: flex;  
+        gap: 20px;  
+    }  
+
+    .nav-links a {  
+        font-weight: bold;  
+        color: var(--text-color);  
+        transition: var(--transition);  
+    }  
+
+    .nav-links a:hover {  
+        color: var(--primary-color);  
+    }  
+
+    .lang-btn {  
+        background-color: var(--primary-color);  
+        color: var(--white);  
+        border: none;  
+        padding: 8px 16px;  
+        border-radius: 5px;  
+        cursor: pointer;  
+        font-family: sans-serif;  
+        font-weight: bold;  
+        transition: var(--transition);  
+    }  
+
+    .lang-btn:hover {  
+        background-color: #004d00;  
+    }  
+
+    /* Mobile Menu Toggle (Simplified) */  
+    @media (max-width: 768px) {  
+        .nav-links {  
+            display: none; /* Can be expanded with JS for full hamburger menu */  
+        }  
+        .nav-container {  
+            justify-content: space-between;  
+        }  
+    }  
+
+    /* --- HERO SECTION --- */  
+    .hero {  
+        background: linear-gradient(rgba(0, 100, 0, 0.8), rgba(0, 100, 0, 0.6)), url('https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');  
+        background-size: cover;  
+        background-position: center;  
+        color: var(--white);  
+        text-align: center;  
+        padding: 100px 20px;  
+        min-height: 80vh;  
+        display: flex;  
+        flex-direction: column;  
+        justify-content: center;  
+        align-items: center;  
+    }  
+
+    .hero h1 {  
+        font-size: 2.5rem;  
+        margin-bottom: 20px;  
+        line-height: 1.4;  
+    }  
+
+    .hero p {  
+        font-size: 1.2rem;  
+        margin-bottom: 30px;  
+        max-width: 800px;  
+    }  
+
+    .cta-btn {  
+        background-color: var(--secondary-color);  
+        color: #000;  
+        padding: 15px 40px;  
+        border-radius: 30px;  
+        font-size: 1.2rem;  
+        font-weight: bold;  
+        transition: var(--transition);  
+        border: 2px solid var(--secondary-color);  
+    }  
+
+    .cta-btn:hover {  
+        background-color: transparent;  
+        color: var(--white);  
+    }  
+
+    /* --- HEADINGS --- */  
+    .section-title {  
+        text-align: center;  
+        margin-bottom: 50px;  
+        color: var(--primary-color);  
+    }  
+      
+    .section-title h2 {  
+        font-size: 2rem;  
+        position: relative;  
+        display: inline-block;  
+        padding-bottom: 10px;  
+    }  
+
+    .section-title h2::after {  
+        content: '';  
+        position: absolute;  
+        bottom: 0;  
+        left: 50%;  
+        transform: translateX(-50%);  
+        width: 80px;  
+        height: 3px;  
+        background-color: var(--secondary-color);  
+    }  
+
+    /* --- ABOUT --- */  
+    .about-grid {  
+        display: grid;  
+        grid-template-columns: 1fr 1fr;  
+        gap: 40px;  
+        align-items: center;  
+    }  
+
+    .about-text {  
+        background: var(--white);  
+        padding: 30px;  
+        border-radius: 10px;  
+        box-shadow: var(--shadow);  
+        border-right: 5px solid var(--primary-color);  
+    }  
+      
+    body.en-mode .about-text {  
+        border-right: none;  
+        border-left: 5px solid var(--primary-color);  
+    }  
+
+    .vision-mission-box {  
+        margin-top: 20px;  
+        background-color: #e8f5e9;  
+        padding: 15px;  
+        border-radius: 5px;  
+    }  
+
+    /* --- DEPARTMENTS --- */  
+    .dept-grid {  
+        display: grid;  
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+        gap: 20px;  
+    }  
+
+    .card {  
+        background: var(--white);  
+        padding: 30px;  
+        border-radius: 10px;  
+        box-shadow: var(--shadow);  
+        text-align: center;  
+        transition: var(--transition);  
+        border-bottom: 4px solid var(--secondary-color);  
+    }  
+
+    .card:hover {  
+        transform: translateY(-5px);  
+    }  
+
+    .card-icon {  
+        font-size: 3rem;  
+        color: var(--primary-color);  
+        margin-bottom: 15px;  
+    }  
+
+    /* --- TEACHERS --- */  
+    .teacher-card {  
+        background: var(--white);  
+        padding: 20px;  
+        border-radius: 10px;  
+        text-align: center;  
+        box-shadow: var(--shadow);  
+    }  
+
+    .teacher-avatar {  
+        width: 100px;  
+        height: 100px;  
+        background-color: #ddd;  
+        border-radius: 50%;  
+        margin: 0 auto 15px;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        font-size: 2rem;  
+        color: #777;  
+    }  
+
+    /* --- ADMISSION FORM --- */  
+    .form-container {  
+        background: var(--white);  
+        padding: 40px;  
+        border-radius: 10px;  
+        box-shadow: var(--shadow);  
+        max-width: 600px;  
+        margin: 0 auto;  
+    }  
+
+    .form-group {  
+        margin-bottom: 20px;  
+    }  
+
+    .form-group label {  
+        display: block;  
+        margin-bottom: 8px;  
+        font-weight: bold;  
+    }  
+
+    .form-group input,   
+    .form-group select,   
+    .form-group textarea {  
+        width: 100%;  
+        padding: 12px;  
+        border: 1px solid #ccc;  
+        border-radius: 5px;  
+        font-family: inherit;  
+    }  
+
+    .form-btn {  
+        width: 100%;  
+        background-color: var(--primary-color);  
+        color: var(--white);  
+        padding: 12px;  
+        border: none;  
+        border-radius: 5px;  
+        cursor: pointer;  
+        font-size: 1.1rem;  
+        transition: var(--transition);  
+    }  
+
+    .form-btn:hover {  
+        background-color: #004d00;  
+    }  
+
+    #success-msg {  
+        display: none;  
+        background-color: #d4edda;  
+        color: #155724;  
+        padding: 15px;  
+        margin-top: 15px;  
+        border-radius: 5px;  
+        text-align: center;  
+    }  
+
+    /* --- CONTACT --- */  
+    .contact-info {  
+        text-align: center;  
+        font-size: 1.2rem;  
+    }  
+      
+    .contact-item {  
+        margin-bottom: 15px;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        gap: 10px;  
+        flex-wrap: wrap;  
+    }  
+
+    /* --- FOOTER --- */  
+    footer {  
+        background-color: #222;  
+        color: #fff;  
+        text-align: center;  
+        padding: 20px;  
+        margin-top: 60px;  
+    }  
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */  
+    @media (max-width: 768px) {  
+        .about-grid {  
+            grid-template-columns: 1fr;  
+        }  
+        .hero h1 {  
+            font-size: 1.8rem;  
+        }  
+    }  
+</style>
+
+</head>  
+<body>  <header>  
+    <div class="container nav-container">  
+        <div class="logo lang-text"   
+             data-ur="جامعہ مالکیہ اوچ پاور"   
+             data-en="Jamia Malikiyah Uoch Power">  
+            جامعہ مالکیہ اوچ پاور  
+        </div>  
+          
+        <nav>  
+            <ul class="nav-links">  
+                <li><a href="#home" class="lang-text" data-ur="ہوم" data-en="Home">ہوم</a></li>  
+                <li><a href="#about" class="lang-text" data-ur="متعلق" data-en="About">متعلق</a></li>  
+                <li><a href="#departments" class="lang-text" data-ur="شعبہ جات" data-en="Departments">شعبہ جات</a></li>  
+                <li><a href="#teachers" class="lang-text" data-ur="اساتذہ" data-en="Faculty">اساتذہ</a></li>  
+                <li><a href="#contact" class="lang-text" data-ur="رابطہ" data-en="Contact">رابطہ</a></li>  
+            </ul>  
+        </nav>  
+
+        <button class="lang-btn" onclick="toggleLanguage()">English</button>  
+    </div>  
+</header>  
+
+<section id="home" class="hero">  
+    <h1 class="lang-text"   
+        data-ur="جامعہ مالکیہ اوچ پاور نصیر آباد بلوچستان"   
+        data-en="Jamia Malikiyah Uoch Power, Naseerabad, Balochistan">  
+        جامعہ مالکیہ اوچ پاور نصیر آباد بلوچستان  
+    </h1>  
+    <p class="lang-text"   
+       data-ur="دینی و عصری تعلیم کا حسین امتزاج، قرآن و سنت کی روشنی میں کردار سازی۔"   
+       data-en="A beautiful blend of religious and contemporary education, building character in the light of Quran and Sunnah.">  
+        دینی و عصری تعلیم کا حسین امتزاج، قرآن و سنت کی روشنی میں کردار سازی۔  
+    </p>  
+    <a href="#admission" class="cta-btn lang-text"   
+       data-ur="داخلہ جاری ہے"   
+       data-en="Admission Open">  
+        داخلہ جاری ہے  
+    </a>  
+</section>  
+
+<section id="about">  
+    <div class="container">  
+        <div class="section-title">  
+            <h2 class="lang-text" data-ur="جامعہ کا تعارف" data-en="About Institute">جامعہ کا تعارف</h2>  
+        </div>  
+        <div class="about-grid">  
+            <div class="about-text">  
+                <h3 class="lang-text" data-ur="ہمارا مشن اور وژن" data-en="Our Mission & Vision">ہمارا مشن اور وژن</h3>  
+                <br>  
+                <p class="lang-text"   
+                   data-ur="جامعہ مالکیہ اوچ پاور کا مقصد معاشرے میں قرآن و سنت کی تعلیمات کو عام کرنا اور ایسے افراد تیار کرنا ہے جو نہ صرف دینی علوم سے آراستہ ہوں بلکہ اخلاقی طور پر بھی بہترین کردار کے حامل ہوں۔"  
+                   data-en="The aim of Jamia Malikiyah Uoch Power is to spread the teachings of Quran and Sunnah in the society and to prepare individuals who are not only equipped with religious knowledge but also possess excellent moral character.">  
+                   جامعہ مالکیہ اوچ پاور کا مقصد معاشرے میں قرآن و سنت کی تعلیمات کو عام کرنا اور ایسے افراد تیار کرنا ہے جو نہ صرف دینی علوم سے آراستہ ہوں بلکہ اخلاقی طور پر بھی بہترین کردار کے حامل ہوں۔  
+                </p>  
+                <div class="vision-mission-box">  
+                    <strong class="lang-text" data-ur="اہم خصوصیات:" data-en="Key Features:">اہم خصوصیات:</strong>  
+                    <ul style="list-style: disc; padding-right: 20px; padding-left: 20px; margin-top: 10px;">  
+                        <li class="lang-text" data-ur="ماہر اساتذہ کرام" data-en="Expert Teachers">ماہر اساتذہ کرام</li>  
+                        <li class="lang-text" data-ur="پرامن تعلیمی ماحول" data-en="Peaceful Environment">پرامن تعلیمی ماحول</li>  
+                        <li class="lang-text" data-ur="تربیت اور کردار سازی" data-en="Moral Training">تربیت اور کردار سازی</li>  
+                    </ul>  
+                </div>  
+            </div>  
+            <div style="background-color: #ddd; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #777;">  
+                <span class="lang-text" data-ur="تصویر یہاں لگائیں" data-en="Place Image Here">تصویر یہاں لگائیں</span>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+
+<section id="departments" style="background-color: #fff;">  
+    <div class="container">  
+        <div class="section-title">  
+            <h2 class="lang-text" data-ur="شعبہ جات" data-en="Our Departments">شعبہ جات</h2>  
+        </div>  
+        <div class="dept-grid">  
+            <div class="card">  
+                <div class="card-icon">📖</div>  
+                <h3 class="lang-text" data-ur="شعبہ ناظرہ اور قاعدہ" data-en="Nazira & Qaidah">شعبہ ناظرہ اور قاعدہ</h3>  
+                <p class="lang-text" data-ur="بنیادی قاعدہ اور ناظرہ قرآن کی تعلیم تجوید کے ساتھ۔" data-en="Basic Qaidah foundation and Nazira Quran education with Tajweed.">بنیادی قاعدہ اور ناظرہ قرآن کی تعلیم تجوید کے ساتھ۔</p>  
+            </div>  
+            <div class="card">  
+                <div class="card-icon">🧠</div>  
+                <h3 class="lang-text" data-ur="شعبہ حفظ" data-en="Hifz-ul-Quran">شعبہ حفظ</h3>  
+                <p class="lang-text" data-ur="قرآن مجید کو مکمل حفظ کرنے کا بہترین انتظام۔" data-en="Excellent arrangement for complete memorization of the Holy Quran.">قرآن مجید کو مکمل حفظ کرنے کا بہترین انتظام۔</p>  
+            </div>  
+            <div class="card">  
+                <div class="card-icon">📚</div>  
+                <h3 class="lang-text" data-ur="شعبہ کتب" data-en="Shu'ba Kutub (Books)">شعبہ کتب</h3>  
+                <p class="lang-text" data-ur="درس نظامی اور اسلامی علوم کی کتب کی تدریس۔" data-en="Teaching of Dars-e-Nizami and Islamic studies books.">درس نظامی اور اسلامی علوم کی کتب کی تدریس۔</p>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+
+<section id="teachers">  
+    <div class="container">  
+        <div class="section-title">  
+            <h2 class="lang-text" data-ur="اساتذہ کرام" data-en="Our Teachers">اساتذہ کرام</h2>  
+        </div>  
+        <div class="dept-grid" style="justify-content: center; display: flex; flex-wrap: wrap; gap: 30px;">  
+            <div class="teacher-card" style="width: 300px;">  
+                <div class="teacher-avatar">👤</div>  
+                <h3>حافظ صفی اللہ صاحب</h3>  
+                <p class="lang-text" data-ur="استاد" data-en="Teacher">استاد</p>  
+            </div>  
+            <div class="teacher-card" style="width: 300px;">  
+                <div class="teacher-avatar">👤</div>  
+                <h3>مولانا نصیب اللہ صاحب</h3>  
+                <p class="lang-text" data-ur="استاد" data-en="Teacher">استاد</p>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+
+<section id="admission" style="background-color: #fff;">  
+    <div class="container">  
+        <div class="section-title">  
+            <h2 class="lang-text" data-ur="آن لائن داخلہ فارم" data-en="Online Admission Form">آن لائن داخلہ فارم</h2>  
+        </div>  
+        <div class="form-container">  
+            <form id="admissionForm" onsubmit="return validateForm(event)">  
+                <div class="form-group">  
+                    <label class="lang-text" data-ur="طالب علم کا نام" data-en="Student Name">طالب علم کا نام</label>  
+                    <input type="text" id="name" placeholder="..." required>  
+                </div>  
+                  
+                <div class="form-group">  
+                    <label class="lang-text" data-ur="عمر" data-en="Age">عمر</label>  
+                    <input type="number" id="age" placeholder="Example: 10" required>  
+                </div>  
+
+                <div class="form-group">  
+                    <label class="lang-text" data-ur="منتخب شعبہ" data-en="Select Department">منتخب شعبہ</label>  
+                    <select id="course">  
+                        <option value="qaida" class="lang-text" data-ur="شعبہ ناظرہ اور قاعدہ" data-en="Nazira & Qaidah">شعبہ ناظرہ اور قاعدہ</option>  
+                        <option value="hifz" class="lang-text" data-ur="شعبہ حفظ" data-en="Hifz">شعبہ حفظ</option>  
+                        <option value="kutub" class="lang-text" data-ur="شعبہ کتب" data-en="Shu'ba Kutub">شعبہ کتب</option>  
+                    </select>  
+                </div>  
+
+                <div class="form-group">  
+                    <label class="lang-text" data-ur="فون نمبر" data-en="Phone Number">فون نمبر</label>  
+                    <input type="tel" id="phone" placeholder="0300-0000000" required>  
+                </div>  
+
+                <div class="form-group">  
+                    <label class="lang-text" data-ur="پیغام (اختیاری)" data-en="Message (Optional)">پیغام (اختیاری)</label>  
+                    <textarea id="message" rows="4"></textarea>  
+                </div>  
+
+                <button type="submit" class="form-btn lang-text" data-ur="فارم جمع کروائیں" data-en="Submit Form">فارم جمع کروائیں</button>  
+                  
+                <div id="success-msg" class="lang-text"   
+                     data-ur="درخواست کامیابی سے جمع کر دی گئی ہے! ہم آپ سے جلد رابطہ کریں گے۔"   
+                     data-en="Application submitted successfully! We will contact you soon.">  
+                     درخواست کامیابی سے جمع کر دی گئی ہے! ہم آپ سے جلد رابطہ کریں گے۔  
+                </div>  
+            </form>  
+        </div>  
+    </div>  
+</section>  
+
+<section id="contact">  
+    <div class="container">  
+        <div class="section-title">  
+            <h2 class="lang-text" data-ur="رابطہ کریں" data-en="Contact Us">رابطہ کریں</h2>  
+        </div>  
+        <div class="contact-info">  
+            <div class="contact-item">  
+                <span>📍</span>  
+                <strong class="lang-text" data-ur="پتہ:" data-en="Address:">پتہ:</strong>  
+                <span class="lang-text"   
+                      data-ur="جامعہ مالکیہ اوچ پاور نصیر آباد بلوچستان"   
+                      data-en="Jamia Malikiyah Uoch Power, Naseerabad, Balochistan">  
+                      جامعہ مالکیہ اوچ پاور نصیر آباد بلوچستان  
+                </span>  
+            </div>  
+            <div class="contact-item">  
+                <span>📞</span>  
+                <strong class="lang-text" data-ur="فون:" data-en="Phone:">فون:</strong>  
+                <a href="tel:03091181041">0309-1181041</a>  
+            </div>  
+            <div class="contact-item">  
+                <span>📧</span>  
+                <strong class="lang-text" data-ur="ای میل:" data-en="Email:">ای میل:</strong>  
+                <a href="mailto:hafeezullahjattak132@gmail.com">hafeezullahjattak132@gmial.com</a>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+
+<footer>  
+    <p class="lang-text"   
+       data-ur="&copy; 2024 جامعہ مالکیہ اوچ پاور۔ جملہ حقوق محفوظ ہیں۔"   
+       data-en="&copy; 2024 Jamia Malikiyah Uoch Power. All rights reserved.">  
+       &copy; 2024 جامعہ مالکیہ اوچ پاور۔ جملہ حقوق محفوظ ہیں۔  
+    </p>  
+</footer>  
+
+<script>  
+    // --- Language Toggle Logic ---  
+    function toggleLanguage() {  
+        const body = document.body;  
+        const langBtn = document.querySelector('.lang-btn');  
+        const elements = document.querySelectorAll('.lang-text');  
+        const isEnglish = body.classList.toggle('en-mode');  
+
+        if (isEnglish) {  
+            // Switch to LTR and English Text  
+            body.setAttribute('dir', 'ltr');  
+            body.setAttribute('lang', 'en');  
+            langBtn.textContent = "اردو";  
+              
+            elements.forEach(el => {  
+                if(el.getAttribute('data-en')) {  
+                    el.textContent = el.getAttribute('data-en');  
+                }  
+                // For select inputs, options need handling differently if not selected  
+                if(el.tagName === 'OPTION') {  
+                    el.text = el.getAttribute('data-en');  
+                }  
+            });  
+
+        } else {  
+            // Switch to RTL and Urdu Text  
+            body.setAttribute('dir', 'rtl');  
+            body.setAttribute('lang', 'ur');  
+            langBtn.textContent = "English";  
+
+            elements.forEach(el => {  
+                if(el.getAttribute('data-ur')) {  
+                    el.textContent = el.getAttribute('data-ur');  
+                }  
+                if(el.tagName === 'OPTION') {  
+                    el.text = el.getAttribute('data-ur');  
+                }  
+            });  
+        }  
+    }  
+
+    // --- Form Validation Logic ---  
+    function validateForm(event) {  
+        event.preventDefault(); // Stop page reload  
+
+        // Get values  
+        const name = document.getElementById('name').value;  
+        const phone = document.getElementById('phone').value;  
+        const age = document.getElementById('age').value;  
+        const successMsg = document.getElementById('success-msg');  
+
+        // Basic validation checks  
+        if (name.length < 3) {  
+            alert("Please enter a valid name / برائے مہربانی درست نام درج کریں");  
+            return false;  
+        }  
+
+        // Simple Phone validation (must contain numbers)  
+        const phoneRegex = /^[0-9\-\+]{10,15}$/;  
+        if (!phoneRegex.test(phone)) {  
+            alert("Please enter a valid phone number / برائے مہربانی درست فون نمبر درج کریں");  
+            return false;  
+        }  
+
+        // If valid:  
+        // In a real website, you would send this data to a server using fetch()  
+        // Example: fetch('https://formspree.io/f/your_code', { method: 'POST', body: ... })  
+          
+        // For now, show success message  
+        successMsg.style.display = 'block';  
+        document.getElementById('admissionForm').reset();  
+          
+        // Hide message after 5 seconds  
+        setTimeout(() => {  
+            successMsg.style.display = 'none';  
+        }, 5000);  
+
+        return true;  
+    }  
+</script>
+
+</body>  
+</html>
